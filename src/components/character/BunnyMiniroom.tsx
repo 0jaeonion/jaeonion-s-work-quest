@@ -55,28 +55,28 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
   const isNightOrRetro = profile.character.room === 'room_night' || profile.character.room === 'room_retro';
 
   return (
-    <div className={`pixel-box p-4 bg-white relative transition-all duration-300 ${compact ? '' : 'w-full'}`}>
+    <div className={`pixel-box room-card p-5 bg-white relative transition-all duration-300 ${compact ? '' : 'w-full'}`}>
       {/* Top Banner Stats */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-pink-100 border border-pink-300 flex items-center justify-center font-pixel text-xs text-pink-600 font-bold shadow-sm">
+          <div className="w-9 h-9 rounded-xl bg-[#fde5ef] border border-[#efb2cb] flex items-center justify-center font-pixel text-[11px] text-[#a8587e] font-bold shadow-sm">
             Lv.{profile.level}
           </div>
           <div>
-            <div className="font-bold text-sm text-slate-800 flex items-center gap-1.5">
+            <div className="font-bold text-sm text-slate-800 flex items-center gap-1.5 min-w-0">
               <span>{profile.nickname}</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-pink-50 text-pink-600 border border-pink-200 font-medium">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#fff2f5] text-[#a8587e] border border-[#f2cad9] font-medium truncate max-w-[130px]">
                 {profile.title || getLevelTitle(profile.level)}
               </span>
             </div>
-            <div className="text-[11px] text-slate-500 font-pixel">
+            <div className="text-[10px] text-slate-500 font-pixel mt-0.5">
               EXP {profile.currentXp.toLocaleString()} / {neededXp.toLocaleString()} XP
             </div>
           </div>
         </div>
 
         {/* Streak Badge */}
-        <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-bold text-xs shadow-sm">
+        <div className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#fff4dc] border border-[#f0dba9] text-[#9c7134] font-bold text-[11px] shadow-sm">
           <Flame className="w-4 h-4 text-orange-500 fill-orange-500 animate-bounce" />
           <span className="font-pixel">{profile.streak} DAY</span>
         </div>
@@ -84,7 +84,7 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
 
       {/* Miniroom Display Area */}
       <div
-        className={`relative rounded-xl border-2 overflow-hidden h-48 flex flex-col items-center justify-end p-3 transition-colors ${getRoomBackground()}`}
+        className={`room-stage relative rounded-2xl border overflow-hidden h-52 flex flex-col items-center justify-end p-3 transition-colors ${getRoomBackground()}`}
       >
         {/* Room scenery elements */}
         {profile.character.room === 'room_cozy' && (
@@ -124,7 +124,7 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
 
         {/* Speech Bubble */}
         {speechText && (
-          <div className="absolute top-2 z-20 px-3 py-1.5 rounded-xl bg-white/95 text-slate-800 text-xs font-medium border border-slate-300 shadow-md animate-float-xp max-w-[85%] text-center">
+          <div className="absolute top-2 z-20 px-3 py-1.5 rounded-2xl bg-[#fffdf9]/95 text-slate-800 text-xs font-medium border border-[#e3d7dc] shadow-md animate-float-xp max-w-[85%] text-center">
             {speechText}
             <div className="absolute bottom-[-5px] left-1/2 -translate-x-1/2 w-2 h-2 bg-white rotate-45 border-r border-b border-slate-300"></div>
           </div>
@@ -159,14 +159,14 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
             {/* Bunny Base Body SVG */}
             <svg width="76" height="84" viewBox="0 0 76 84" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Ears */}
-              <ellipse cx="26" cy="22" rx="7" ry="18" fill="#FFFFFF" stroke="#334155" strokeWidth="2.5" />
+              <ellipse cx="26" cy="22" rx="7" ry="18" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2.5" />
               <ellipse cx="26" cy="22" rx="4" ry="13" fill="#FCE7F3" />
 
-              <ellipse cx="50" cy="22" rx="7" ry="18" fill="#FFFFFF" stroke="#334155" strokeWidth="2.5" />
+              <ellipse cx="50" cy="22" rx="7" ry="18" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2.5" />
               <ellipse cx="50" cy="22" rx="4" ry="13" fill="#FCE7F3" />
 
               {/* Head */}
-              <ellipse cx="38" cy="46" rx="24" ry="20" fill="#FFFFFF" stroke="#334155" strokeWidth="2.5" />
+              <ellipse cx="38" cy="46" rx="24" ry="20" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2.5" />
 
               {/* Eyes */}
               {profile.character.face === 'face_sparkle' ? (
@@ -176,30 +176,30 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
                 </>
               ) : (
                 <>
-                  <ellipse cx="28" cy="44" rx="2.5" ry="3.5" fill="#334155" />
+                  <ellipse cx="28" cy="44" rx="2.5" ry="3.5" fill="#5b5364" />
                   <circle cx="27" cy="43" r="1" fill="#FFFFFF" />
-                  <ellipse cx="48" cy="44" rx="2.5" ry="3.5" fill="#334155" />
+                  <ellipse cx="48" cy="44" rx="2.5" ry="3.5" fill="#5b5364" />
                   <circle cx="47" cy="43" r="1" fill="#FFFFFF" />
                 </>
               )}
 
               {/* Nose & Mouth */}
               <polygon points="38,48 36,46 40,46" fill="#F472B6" />
-              <path d="M35 50 Q38 53 41 50" stroke="#334155" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+              <path d="M35 50 Q38 53 41 50" stroke="#5b5364" strokeWidth="1.5" fill="none" strokeLinecap="round" />
 
               {/* Cheeks / Blush */}
               <ellipse cx="22" cy="50" rx="3.5" ry="2" fill="#FBCFE8" opacity="0.8" />
               <ellipse cx="54" cy="50" rx="3.5" ry="2" fill="#FBCFE8" opacity="0.8" />
 
               {/* Body */}
-              <ellipse cx="38" cy="68" rx="19" ry="14" fill="#FFFFFF" stroke="#334155" strokeWidth="2.5" />
+              <ellipse cx="38" cy="68" rx="19" ry="14" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2.5" />
               <ellipse cx="38" cy="68" rx="12" ry="8" fill="#FFF1F2" />
 
               {/* Paws */}
-              <ellipse cx="26" cy="65" rx="4" ry="4" fill="#FFFFFF" stroke="#334155" strokeWidth="2" />
-              <ellipse cx="50" cy="65" rx="4" ry="4" fill="#FFFFFF" stroke="#334155" strokeWidth="2" />
-              <ellipse cx="28" cy="79" rx="6" ry="3.5" fill="#FFFFFF" stroke="#334155" strokeWidth="2" />
-              <ellipse cx="48" cy="79" rx="6" ry="3.5" fill="#FFFFFF" stroke="#334155" strokeWidth="2" />
+              <ellipse cx="26" cy="65" rx="4" ry="4" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2" />
+              <ellipse cx="50" cy="65" rx="4" ry="4" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2" />
+              <ellipse cx="28" cy="79" rx="6" ry="3.5" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2" />
+              <ellipse cx="48" cy="79" rx="6" ry="3.5" fill="#FFFFFF" stroke="#5b5364" strokeWidth="2" />
             </svg>
 
             {/* Face item overlay */}
@@ -252,13 +252,13 @@ export const BunnyMiniroom: React.FC<{ compact?: boolean }> = ({ compact = false
 
       {/* Quick Summary Pill Bar */}
       <div className="grid grid-cols-2 gap-2 mt-3 text-center">
-        <div className="p-2 rounded-lg bg-pink-50/70 border border-pink-200">
-          <div className="text-[10px] text-pink-600 font-bold">오늘 획득 XP</div>
-          <div className="text-sm font-pixel font-bold text-pink-700">+{todayEarnedXp} XP</div>
+        <div className="p-2.5 rounded-xl bg-[#fff2f5] border border-[#f2cad9]">
+          <div className="text-[10px] text-[#b36b8b] font-bold">오늘 획득 XP</div>
+          <div className="text-sm font-pixel font-bold text-[#a8587e]">+{todayEarnedXp} XP</div>
         </div>
-        <div className="p-2 rounded-lg bg-sky-50/70 border border-sky-200">
-          <div className="text-[10px] text-sky-600 font-bold">오늘 완료</div>
-          <div className="text-sm font-pixel font-bold text-sky-700">
+        <div className="p-2.5 rounded-xl bg-[#eaf5f7] border border-[#c8e3eb]">
+          <div className="text-[10px] text-[#5f8e9e] font-bold">오늘 완료</div>
+          <div className="text-sm font-pixel font-bold text-[#5f8e9e]">
             {todayCompletedQuests.length} / {todayQuests.length}
           </div>
         </div>

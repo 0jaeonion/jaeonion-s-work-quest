@@ -65,7 +65,7 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-slate-800 flex flex-col antialiased">
+    <div className="min-h-screen quest-shell text-slate-800 flex flex-col antialiased">
       {/* Floating XP Particles Overlay */}
       {floatingXpList.map(item => (
         <div
@@ -77,9 +77,9 @@ const AppContent: React.FC = () => {
         </div>
       ))}
 
-      <div className="flex-1 flex max-w-7xl w-full mx-auto p-2 sm:p-4 gap-4">
+      <div className="flex-1 flex max-w-[1540px] w-full mx-auto p-3 sm:p-5 lg:p-6 gap-5">
         {/* Desktop Sidebar */}
-        <div className="hidden lg:block w-64 flex-shrink-0">
+        <div className="hidden lg:block w-[236px] flex-shrink-0">
           <Sidebar />
         </div>
 
@@ -90,7 +90,7 @@ const AppContent: React.FC = () => {
             onClick={() => setIsMobileNavOpen(false)}
           >
             <div
-              className="w-72 max-w-[80%] h-full bg-white p-2"
+              className="w-72 max-w-[82%] h-full room-sidebar p-3"
               onClick={e => e.stopPropagation()}
             >
               <Sidebar onCloseMobile={() => setIsMobileNavOpen(false)} />

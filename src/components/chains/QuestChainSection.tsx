@@ -63,8 +63,8 @@ export const QuestChainSection: React.FC = () => {
   };
 
   return (
-    <div className="pixel-box p-4 bg-white">
-      <div className="flex items-center justify-between mb-3">
+    <div className="pixel-box p-4 sm:p-5 bg-white">
+      <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xl">⛓️</span>
           <div>
@@ -80,14 +80,14 @@ export const QuestChainSection: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsAiDecomposeOpen(true)}
-            className="pixel-btn px-2.5 py-1.5 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 text-xs font-bold flex items-center gap-1 border border-sky-300"
+            className="pixel-btn px-2.5 py-1.5 rounded-lg bg-[#e7f4f8] hover:bg-[#d9eef3] text-[#4c7887] text-xs font-bold flex items-center gap-1 border border-[#c8e3eb]"
           >
             <Wand2 className="w-3.5 h-3.5 text-sky-600" />
             <span>AI 분해</span>
           </button>
           <button
             onClick={() => setIsCreatingNew(!isCreatingNew)}
-            className="pixel-btn px-3 py-1.5 rounded-lg bg-purple-500 hover:bg-purple-600 text-white text-xs font-pixel font-bold flex items-center gap-1"
+            className="pixel-btn px-3 py-1.5 rounded-lg bg-[#ed93b8] hover:bg-[#df7faa] text-white text-xs font-pixel font-bold flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>체인 생성</span>
@@ -97,7 +97,7 @@ export const QuestChainSection: React.FC = () => {
 
       {/* Chain Creation Form */}
       {isCreatingNew && (
-        <form onSubmit={handleCreateChain} className="p-3 mb-4 rounded-xl bg-purple-50/70 border-2 border-purple-300 space-y-3">
+        <form onSubmit={handleCreateChain} className="p-3.5 mb-4 rounded-2xl bg-[#f3edfb] border border-[#ddd2f1] space-y-3">
           <div className="font-bold text-xs text-purple-900 flex items-center gap-1">
             <Sparkles className="w-3.5 h-3.5" />
             <span>새로운 퀘스트 체인 등록</span>
@@ -189,16 +189,16 @@ export const QuestChainSection: React.FC = () => {
           return (
             <div
               key={chain.id}
-              className={`rounded-xl border-2 transition-all overflow-hidden ${
+              className={`rounded-2xl border transition-all overflow-hidden ${
                 chain.isCompleted
-                  ? 'bg-emerald-50/50 border-emerald-300'
-                  : 'bg-slate-50/80 border-slate-300'
+                  ? 'bg-[#eef8f1] border-[#cfe9d9]'
+                  : 'bg-[#fffaf1] border-[#eadfcd]'
               }`}
             >
               {/* Header bar */}
               <div
                 onClick={() => setExpandedChainId(isExpanded ? null : chain.id)}
-                className="p-3 flex items-center justify-between cursor-pointer hover:bg-black/5"
+                className="p-3.5 flex items-center justify-between cursor-pointer hover:bg-white/45 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
                   <span className="text-lg">{chain.isCompleted ? '🏆' : '🎯'}</span>
@@ -252,15 +252,15 @@ export const QuestChainSection: React.FC = () => {
 
               {/* Steps expansion */}
               {isExpanded && (
-                <div className="p-3 pt-1 border-t border-slate-200 bg-white space-y-2">
+                <div className="p-3 pt-1 border-t border-[#eadfdf] bg-[#fffdf9]/70 space-y-2">
                   {chain.steps.map((step, idx) => (
                     <div
                       key={step.id}
                       onClick={() => toggleChainStep(chain.id, step.id)}
                       className={`p-2.5 rounded-lg border flex items-center justify-between cursor-pointer transition-all ${
                         step.completed
-                          ? 'bg-emerald-50/60 border-emerald-200 opacity-70'
-                          : 'bg-white border-slate-200 hover:border-purple-300'
+                          ? 'bg-[#eef8f1] border-[#cfe9d9] opacity-70'
+                          : 'bg-[#fffdf9] border-[#e8dfe2] hover:border-[#d5b8ca]'
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
@@ -278,7 +278,7 @@ export const QuestChainSection: React.FC = () => {
                         </span>
                       </div>
 
-                      <span className="text-[11px] font-pixel font-bold text-purple-600 px-2 py-0.5 rounded bg-purple-50">
+                      <span className="text-[11px] font-pixel font-bold text-[#76619f] px-2 py-0.5 rounded-lg bg-[#f1ecfb] border border-[#ddd2f1]">
                         +{step.xp} XP
                       </span>
                     </div>

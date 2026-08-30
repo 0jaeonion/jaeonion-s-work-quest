@@ -32,10 +32,10 @@ export const WhatShouldIDoModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-fadeIn">
-      <div className="pixel-box w-full max-w-md bg-white overflow-hidden shadow-pixel-lg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3e3a4f]/45 backdrop-blur-sm animate-fadeIn">
+      <div className="pixel-box w-full max-w-md bg-white overflow-hidden shadow-xl">
         {/* Header */}
-        <div className="p-4 bg-gradient-to-r from-amber-100 via-yellow-100 to-orange-100 border-b-2 border-slate-700 flex items-center justify-between">
+        <div className="p-4 bg-[#fff4dc] border-b border-[#f0dba9] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl animate-spin" style={{ animationDuration: '8s' }}>🎲</span>
             <h2 className="font-pixel text-sm font-bold text-slate-800">
@@ -57,22 +57,22 @@ export const WhatShouldIDoModal: React.FC = () => {
               {/* Bunny Avatar with speech */}
               <div className="flex flex-col items-center">
                 <div className="text-4xl animate-bounce-short mb-2">🐰</div>
-                <div className="p-3.5 rounded-2xl bg-amber-50 border-2 border-amber-300 shadow-sm text-left w-full space-y-2 relative">
-                  <div className="font-bold text-xs sm:text-sm text-amber-950 flex items-center gap-1.5">
+                <div className="p-3.5 rounded-2xl bg-[#fff7df] border border-[#f1ddae] shadow-sm text-left w-full space-y-2 relative">
+                  <div className="font-bold text-xs sm:text-sm text-[#806c4b] flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-amber-600 fill-amber-500" />
                     <span>{recommendation.headline}</span>
                   </div>
-                  <p className="text-xs text-amber-900 leading-relaxed font-medium">
+                  <p className="text-xs text-[#806c4b] leading-relaxed font-medium">
                     {recommendation.reason}
                   </p>
                 </div>
               </div>
 
               {/* Quest Detail Card */}
-              <div className="p-4 rounded-xl border-2 border-slate-700 bg-slate-50 text-left space-y-2.5 shadow-pixel-sm">
+              <div className="p-4 rounded-2xl border border-[#e8dfe2] bg-[#fffdf9] text-left space-y-2.5 shadow-sm">
                 <div className="font-bold text-sm text-slate-800 flex items-center justify-between">
                   <span>{quest.title}</span>
-                  <span className="font-pixel text-xs text-pink-600 font-bold bg-pink-100 px-2 py-0.5 rounded">
+                  <span className="font-pixel text-xs text-[#a8587e] font-bold bg-[#fce9f0] border border-[#f2cbd9] px-2 py-1 rounded-lg">
                     +{quest.xp || 20} XP
                   </span>
                 </div>
@@ -108,7 +108,7 @@ export const WhatShouldIDoModal: React.FC = () => {
               <div className="flex gap-2 pt-2">
                 <button
                   onClick={handleStart}
-                  className="pixel-btn flex-1 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-900 font-pixel text-xs font-bold flex items-center justify-center gap-1.5"
+                  className="pixel-btn flex-1 py-2.5 rounded-xl bg-[#fff2d4] hover:bg-[#fbe6b7] text-[#80602a] font-pixel text-xs font-bold flex items-center justify-center gap-1.5"
                 >
                   <Play className="w-4 h-4 fill-slate-900" />
                   <span>지금 바로 시작하기</span>
@@ -116,7 +116,7 @@ export const WhatShouldIDoModal: React.FC = () => {
 
                 <button
                   onClick={handleComplete}
-                  className="pixel-btn flex-1 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-pixel text-xs font-bold flex items-center justify-center gap-1.5"
+                  className="pixel-btn flex-1 py-2.5 rounded-xl bg-[#a8d9c0] hover:bg-[#92c9aa] text-[#2d5f46] font-pixel text-xs font-bold flex items-center justify-center gap-1.5"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>이미 완료했어요!</span>
@@ -137,7 +137,7 @@ export const WhatShouldIDoModal: React.FC = () => {
                   setIsWhatShouldIDoOpen(false);
                   setIsAddModalOpen(true);
                 }}
-                className="pixel-btn px-4 py-2 rounded-xl bg-pink-500 text-white font-pixel text-xs font-bold"
+                className="pixel-btn px-4 py-2 rounded-xl bg-[#ed93b8] hover:bg-[#df7faa] text-white font-pixel text-xs font-bold"
               >
                 ＋ 새 퀘스트 추가하기
               </button>

@@ -30,7 +30,7 @@ export const Sidebar: React.FC<{ onCloseMobile?: () => void }> = ({ onCloseMobil
   const { activeTab, setActiveTab } = useApp();
 
   return (
-    <aside className="w-64 bg-white pixel-box p-4 flex flex-col justify-between h-full">
+    <aside className="w-full room-sidebar pixel-box p-4 flex flex-col justify-between h-full">
       <div className="space-y-4">
         {/* Brand Logo */}
         <div
@@ -38,9 +38,9 @@ export const Sidebar: React.FC<{ onCloseMobile?: () => void }> = ({ onCloseMobil
             setActiveTab('dashboard');
             onCloseMobile?.();
           }}
-          className="flex items-center gap-2.5 p-2 rounded-xl bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-slate-700 cursor-pointer shadow-pixel-sm"
+          className="flex items-center gap-2.5 p-2.5 rounded-2xl bg-gradient-to-r from-[#fff0f5] to-[#f2ecfb] border border-pink-200 cursor-pointer shadow-sm transition-transform hover:-translate-y-0.5"
         >
-          <div className="w-10 h-10 rounded-lg bg-white border border-slate-700 flex items-center justify-center text-2xl shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#fffdf9] border border-pink-200 flex items-center justify-center text-2xl shadow-sm">
             🐰
           </div>
           <div>
@@ -67,10 +67,10 @@ export const Sidebar: React.FC<{ onCloseMobile?: () => void }> = ({ onCloseMobil
                   setActiveTab(item.id);
                   onCloseMobile?.();
                 }}
-                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold font-pixel transition-all ${
+                className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                   isActive
-                    ? 'bg-pink-400 text-white shadow-pixel-pink border-2 border-slate-800'
-                    : 'text-slate-600 hover:bg-pink-50/70 hover:text-slate-900'
+                    ? 'sidebar-nav-item is-active'
+                    : 'sidebar-nav-item text-slate-600'
                 }`}
               >
                 <span className="text-base">{item.emoji}</span>

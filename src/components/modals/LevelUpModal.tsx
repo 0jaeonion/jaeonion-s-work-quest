@@ -9,13 +9,13 @@ export const LevelUpModal: React.FC = () => {
   if (!isLevelUpOpen || !levelUpData) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-      <div className="pixel-box w-full max-w-sm bg-white overflow-hidden text-center p-6 space-y-4 shadow-pixel-lg border-4 border-pink-400">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3e3a4f]/55 backdrop-blur-sm animate-fadeIn">
+      <div className="pixel-box w-full max-w-sm bg-white overflow-hidden text-center p-6 space-y-4 shadow-xl border-2 border-[#efb2cb]">
         {/* Celebration Banner */}
         <div className="text-5xl animate-bounce-short">🎉</div>
 
         <div className="space-y-1">
-          <h2 className="font-pixel text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-amber-500 tracking-wider">
+          <h2 className="font-pixel text-xl font-bold text-[#b45f89] tracking-wider">
             LEVEL UP!
           </h2>
           <p className="text-xs text-slate-500 font-pixel">
@@ -24,7 +24,7 @@ export const LevelUpModal: React.FC = () => {
         </div>
 
         {/* Level Transition Pill */}
-        <div className="flex items-center justify-center gap-3 py-3 px-4 rounded-2xl bg-pink-50 border-2 border-pink-300">
+        <div className="flex items-center justify-center gap-3 py-3 px-4 rounded-2xl bg-[#fff2f5] border border-[#f2cad9]">
           <div className="font-pixel text-lg font-bold text-slate-500">
             Lv.{levelUpData.oldLevel}
           </div>
@@ -35,16 +35,16 @@ export const LevelUpModal: React.FC = () => {
         </div>
 
         {/* New Title */}
-        <div className="p-2.5 rounded-xl bg-purple-50 border border-purple-200">
-          <div className="text-[10px] text-purple-600 font-pixel font-bold">새로운 칭호 획득</div>
-          <div className="text-sm font-bold text-purple-900 mt-0.5">
+        <div className="p-2.5 rounded-xl bg-[#f1ecfb] border border-[#ddd2f1]">
+          <div className="text-[10px] text-[#8e78b7] font-pixel font-bold">새로운 칭호 획득</div>
+          <div className="text-sm font-bold text-[#66527f] mt-0.5">
             {levelUpData.newTitle}
           </div>
         </div>
 
         {/* Unlocked Items announcement if any */}
         {levelUpData.unlockedItems.length > 0 && (
-          <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-xs font-medium text-amber-900 flex items-center justify-center gap-1.5">
+          <div className="p-2.5 rounded-xl bg-[#fff7df] border border-[#f1ddae] text-xs font-medium text-[#806c4b] flex items-center justify-center gap-1.5">
             <Gift className="w-4 h-4 text-amber-600" />
             <span>새로운 토끼 꾸미기 아이템이 해금되었습니다! 🎁</span>
           </div>
@@ -57,7 +57,7 @@ export const LevelUpModal: React.FC = () => {
                 setIsLevelUpOpen(false);
                 setActiveTab('character');
               }}
-              className="pixel-btn flex-1 py-2.5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white font-pixel text-xs font-bold"
+              className="pixel-btn flex-1 py-2.5 rounded-xl bg-[#c8b7e8] hover:bg-[#b8a5df] text-[#59486e] font-pixel text-xs font-bold"
             >
               드레스룸 가기 🐰
             </button>
@@ -65,7 +65,7 @@ export const LevelUpModal: React.FC = () => {
 
           <button
             onClick={() => setIsLevelUpOpen(false)}
-            className="pixel-btn flex-1 py-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white font-pixel text-xs font-bold shadow-sm"
+            className="pixel-btn flex-1 py-2.5 rounded-xl bg-[#ed93b8] hover:bg-[#df7faa] text-white font-pixel text-xs font-bold"
           >
             확인 ✨
           </button>

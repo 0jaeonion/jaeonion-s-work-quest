@@ -30,12 +30,12 @@ export const Header: React.FC<{ onOpenMobileNav: () => void }> = ({ onOpenMobile
   };
 
   return (
-    <header className="pixel-box p-3 bg-white mb-4 flex items-center justify-between">
+    <header className="pixel-box p-3 sm:p-3.5 bg-white mb-5 flex items-center justify-between">
       {/* Left: Mobile hamburger & Date */}
       <div className="flex items-center gap-3">
         <button
           onClick={onOpenMobileNav}
-          className="lg:hidden p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700"
+          className="lg:hidden p-2 rounded-xl bg-[#f7eef1] hover:bg-[#fbe3ed] text-[#a25a7b] border border-[#ead8df] transition-colors"
           aria-label="메뉴 열기"
         >
           <Menu className="w-5 h-5" />
@@ -43,7 +43,7 @@ export const Header: React.FC<{ onOpenMobileNav: () => void }> = ({ onOpenMobile
 
         <div className="flex items-center gap-2">
           <span className="text-xl hidden sm:inline">🐰</span>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-pink-50 text-pink-700 border border-pink-200 font-pixel text-xs font-bold">
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#fff2f5] text-[#a8587e] border border-[#f2cad9] font-pixel text-[11px] font-bold">
             <Calendar className="w-3.5 h-3.5 text-pink-500" />
             <span>{todayFormatted}</span>
           </div>
@@ -53,13 +53,13 @@ export const Header: React.FC<{ onOpenMobileNav: () => void }> = ({ onOpenMobile
       {/* Right: Quick Stats & Controls */}
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Streak */}
-        <div className="flex items-center gap-1 px-2.5 py-1 rounded-xl bg-orange-50 text-orange-700 border border-orange-200 text-xs font-pixel font-bold shadow-xs">
+        <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#fff4dc] text-[#9c7134] border border-[#f0dba9] text-[11px] font-pixel font-bold shadow-sm">
           <Flame className="w-4 h-4 text-orange-500 fill-orange-500" />
           <span>{profile.streak} DAY</span>
         </div>
 
         {/* Level badge */}
-        <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-xl bg-purple-50 text-purple-700 border border-purple-200 text-xs font-pixel font-bold">
+        <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#f1ecfb] text-[#76619f] border border-[#ddd2f1] text-[11px] font-pixel font-bold">
           <Zap className="w-3.5 h-3.5 text-purple-500" />
           <span>Lv.{profile.level}</span>
         </div>
@@ -68,10 +68,10 @@ export const Header: React.FC<{ onOpenMobileNav: () => void }> = ({ onOpenMobile
         <button
           onClick={toggleSound}
           title={settings.soundEnabled ? '사운드 끄기' : '사운드 켜기'}
-          className={`p-2 rounded-xl border transition-all ${
+          className={`p-2 rounded-xl border shadow-sm transition-all ${
             settings.soundEnabled
-              ? 'bg-pink-50 text-pink-600 border-pink-200'
-              : 'bg-slate-100 text-slate-400 border-slate-200'
+              ? 'bg-[#fff2f5] text-[#c46691] border-[#f2cad9]'
+              : 'bg-[#f5f0f1] text-[#aaa1aa] border-[#e7dfe2]'
           }`}
         >
           {settings.soundEnabled ? (
@@ -88,7 +88,7 @@ export const Header: React.FC<{ onOpenMobileNav: () => void }> = ({ onOpenMobile
             setActiveTab('settings');
           }}
           title="설정"
-          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200"
+          className="p-2 rounded-xl bg-[#f7f3f7] hover:bg-[#f1e8f0] text-[#716979] border border-[#e6dfe5] shadow-sm transition-colors"
         >
           <Settings className="w-4 h-4" />
         </button>

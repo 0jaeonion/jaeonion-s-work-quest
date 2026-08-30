@@ -66,10 +66,10 @@ export const AiDecomposeModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-fadeIn">
-      <div className="pixel-box w-full max-w-lg bg-white overflow-hidden shadow-pixel-lg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3e3a4f]/45 backdrop-blur-sm animate-fadeIn">
+      <div className="pixel-box w-full max-w-lg bg-white overflow-hidden shadow-xl">
         {/* Header */}
-        <div className="p-4 bg-gradient-to-r from-sky-100 via-indigo-100 to-purple-100 border-b-2 border-slate-700 flex items-center justify-between">
+        <div className="p-4 bg-[#e7f4f8] border-b border-[#c8e3eb] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🤖</span>
             <h2 className="font-pixel text-sm font-bold text-slate-800">
@@ -112,20 +112,20 @@ export const AiDecomposeModal: React.FC = () => {
 
           {/* Result preview */}
           {decomposedResult && (
-            <div className="space-y-3 pt-2 border-t">
+            <div className="space-y-3 pt-3 border-t border-[#eee3e6]">
               <div className="flex items-center justify-between">
                 <div className="font-bold text-xs text-slate-800 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-purple-600" />
+                  <Sparkles className="w-4 h-4 text-[#a78bc4]" />
                   <span>{decomposedResult.title}</span>
                 </div>
-                <span className="text-[10px] font-pixel text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-pixel text-[#76619f] font-bold bg-[#f1ecfb] border border-[#ddd2f1] px-2 py-1 rounded-lg">
                   올클리어 보너스 +{decomposedResult.bonusXp} XP
                 </span>
               </div>
 
               <div className="space-y-2">
                 {decomposedResult.steps.map((step, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-200">
+                  <div key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-[#f8f5f3] border border-[#e8dfe2]">
                     <span className="font-pixel text-xs font-bold text-sky-700 w-5">{idx + 1}.</span>
                     <input
                       type="text"
@@ -161,7 +161,7 @@ export const AiDecomposeModal: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCreateChain}
-                className="pixel-btn w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-pixel text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm mt-3"
+                className="pixel-btn w-full py-2.5 rounded-xl bg-[#ed93b8] hover:bg-[#df7faa] text-white font-pixel text-xs font-bold flex items-center justify-center gap-1.5 mt-3"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>퀘스트 체인으로 등록하기</span>

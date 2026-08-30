@@ -23,20 +23,20 @@ export const TodayProgressWidget: React.FC = () => {
   }, [todayCompletedQuests.length]);
 
   return (
-    <div className="pixel-box p-4 bg-white relative overflow-hidden">
+    <div className="pixel-box today-focus p-5 sm:p-6 bg-white relative overflow-hidden">
       {/* Background soft decorative sparkle */}
-      <div className="absolute top-2 right-2 text-pink-200/40 text-4xl select-none pointer-events-none">
+      <div className="absolute top-3 right-4 text-[#edc6d5]/60 text-4xl select-none pointer-events-none">
         🌱
       </div>
 
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <span className="text-xl">🌱</span>
           <h2 className="font-pixel text-sm font-bold text-slate-800 tracking-wider">
             TODAY PROGRESS
           </h2>
         </div>
-        <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold font-pixel">
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#eaf6ef] text-[#3e8161] border border-[#cfe9d9] text-[11px] font-bold font-pixel">
           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
           {todayCompletedQuests.length} / {todayQuests.length} 완료 ({todayProgressPercentage}%)
         </div>
@@ -44,7 +44,7 @@ export const TodayProgressWidget: React.FC = () => {
 
       {/* Progress Bar */}
       <div className="my-3">
-        <div className="pixel-progress-outer h-4 w-full bg-slate-100 p-0.5">
+        <div className="pixel-progress-outer h-3.5 w-full bg-slate-100 p-0.5">
           <div
             className="pixel-progress-inner h-full bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-400 rounded-full flex items-center justify-end pr-1"
             style={{ width: `${Math.max(todayProgressPercentage, 2)}%` }}
@@ -59,10 +59,10 @@ export const TodayProgressWidget: React.FC = () => {
       </div>
 
       {/* Encouraging Quote Bubble */}
-      <div className="flex items-center gap-2 p-2.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-900 font-medium mb-3">
+      <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-[#fff7df] border border-[#f1ddae] text-xs text-[#806c4b] font-medium mb-4">
         <span className="text-sm">🐰</span>
         <span className="italic flex-1">{ENCOURAGING_QUOTES[quoteIndex]}</span>
-        <span className="text-[11px] font-pixel font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-md border border-amber-300">
+        <span className="text-[11px] font-pixel font-bold text-[#a45f80] bg-[#fce9f0] px-2 py-1 rounded-lg border border-[#f2cbd9]">
           +{todayEarnedXp} XP 획득
         </span>
       </div>
@@ -75,9 +75,9 @@ export const TodayProgressWidget: React.FC = () => {
             soundManager.playClick();
             setIsWhatShouldIDoOpen(true);
           }}
-          className="pixel-btn flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-200 via-yellow-200 to-orange-200 text-slate-800 font-bold text-xs hover:brightness-105"
+          className="pixel-btn group flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#fff2d4] text-[#80602a] border border-[#f0d9a0] font-bold text-xs"
         >
-          <Dices className="w-4 h-4 text-amber-700 animate-spin" style={{ animationDuration: '6s' }} />
+          <Dices className="w-4 h-4 text-amber-700 transition-transform group-hover:rotate-12" />
           <span>오늘 뭐 하지? 🎲</span>
         </button>
 
@@ -87,7 +87,7 @@ export const TodayProgressWidget: React.FC = () => {
             soundManager.playClick();
             setIsTemplateModalOpen(true);
           }}
-          className="pixel-btn flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 font-bold text-xs hover:brightness-105"
+          className="pixel-btn group flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#f2ecfb] text-[#75639a] border border-[#ddd2f1] font-bold text-xs"
         >
           <Layers className="w-4 h-4 text-purple-600" />
           <span>업무 템플릿 📦</span>
@@ -99,7 +99,7 @@ export const TodayProgressWidget: React.FC = () => {
             soundManager.playClick();
             setIsAiDecomposeOpen(true);
           }}
-          className="pixel-btn flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-sky-100 to-indigo-100 text-sky-900 font-bold text-xs hover:brightness-105"
+          className="pixel-btn group flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-[#e7f4f8] text-[#4c7887] border border-[#c8e3eb] font-bold text-xs"
         >
           <Wand2 className="w-4 h-4 text-sky-600" />
           <span>AI 퀘스트 분해 🤖</span>

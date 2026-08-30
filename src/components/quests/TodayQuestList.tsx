@@ -123,9 +123,9 @@ export const TodayQuestList: React.FC = () => {
   const doneCount = filteredAndSortedQuests.filter(q => q.status === 'DONE').length;
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {/* Quick Add Bar */}
-      <div className="pixel-box p-3 bg-white">
+      <div className="pixel-box p-4 sm:p-5 bg-white">
         <form onSubmit={handleQuickAdd} className="flex flex-col sm:flex-row gap-2">
           <div className="relative flex-1">
             <input
@@ -133,14 +133,14 @@ export const TodayQuestList: React.FC = () => {
               value={quickTitle}
               onChange={e => setQuickTitle(e.target.value)}
               placeholder="🐰 새 퀘스트 입력 후 Enter (예: 정산 파일 검토)..."
-              className="w-full pl-3 pr-24 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300 focus:bg-white transition-all font-sans"
+              className="w-full pl-3 pr-24 py-3 rounded-xl bg-[#fcf7f7] border border-[#e7dce1] text-sm focus:outline-none focus:ring-2 focus:ring-pink-300 focus:bg-white transition-all font-sans"
             />
             {/* Quick Category Selector */}
             <div className="absolute right-2 top-1/2 -translate-y-1/2">
               <select
                 value={quickCategory}
                 onChange={e => setQuickCategory(e.target.value)}
-                className="text-xs bg-pink-50 text-pink-700 font-bold border border-pink-200 rounded-lg px-2 py-1 focus:outline-none cursor-pointer"
+                className="text-[11px] bg-[#fff2f5] text-[#a8587e] font-bold border border-[#f2cad9] rounded-lg px-2 py-1.5 focus:outline-none cursor-pointer"
               >
                 {categories.map(c => (
                   <option key={c.id} value={c.name}>
@@ -155,7 +155,7 @@ export const TodayQuestList: React.FC = () => {
             <button
               type="submit"
               disabled={!quickTitle.trim()}
-              className="pixel-btn px-4 py-2.5 rounded-xl bg-pink-400 hover:bg-pink-500 text-white font-pixel text-xs font-bold disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-sm"
+              className="pixel-btn px-4 py-2.5 rounded-xl bg-[#ed93b8] hover:bg-[#df7faa] text-white font-pixel text-xs font-bold disabled:opacity-50 flex items-center justify-center gap-1.5"
             >
               <Zap className="w-3.5 h-3.5" />
               <span>빠른 추가</span>
@@ -167,7 +167,7 @@ export const TodayQuestList: React.FC = () => {
                 soundManager.playClick();
                 setIsAddModalOpen(true);
               }}
-              className="pixel-btn px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-pixel text-xs font-bold flex items-center justify-center gap-1 shadow-sm whitespace-nowrap"
+              className="pixel-btn px-3 py-2.5 rounded-xl bg-[#4b465b] hover:bg-[#3e3a4f] text-white font-pixel text-xs font-bold flex items-center justify-center gap-1 whitespace-nowrap"
             >
               <Plus className="w-4 h-4" />
               <span>＋ NEW QUEST</span>
@@ -177,7 +177,7 @@ export const TodayQuestList: React.FC = () => {
       </div>
 
       {/* Filter & Sort Controls Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
+      <div className="quest-surface flex flex-wrap items-center justify-between gap-3 p-3.5">
         {/* Search */}
         <div className="relative flex-1 min-w-[180px]">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -186,7 +186,7 @@ export const TodayQuestList: React.FC = () => {
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="퀘스트 이름 검색..."
-            className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-pink-300"
+            className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#fffdf9] border border-[#e8dfe2] text-xs focus:outline-none focus:ring-2 focus:ring-pink-200"
           />
         </div>
 
@@ -196,8 +196,8 @@ export const TodayQuestList: React.FC = () => {
             onClick={() => setSelectedCategory('ALL')}
             className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
               selectedCategory === 'ALL'
-                ? 'bg-slate-800 text-white font-bold'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                ? 'bg-[#3e3a4f] text-white font-bold shadow-sm'
+                : 'bg-[#f7f2f3] text-[#726a78] border border-[#e8dfe2] hover:bg-[#fbe3ed]'
             }`}
           >
             전체
@@ -208,8 +208,8 @@ export const TodayQuestList: React.FC = () => {
               onClick={() => setSelectedCategory(c.name)}
               className={`px-2 py-1 rounded-lg text-xs flex items-center gap-1 whitespace-nowrap transition-all ${
                 selectedCategory === c.name
-                  ? `${c.badgeBg} ${c.badgeText} ring-2 ring-pink-300 font-bold`
-                  : 'bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  ? `${c.badgeBg} ${c.badgeText} ring-2 ring-pink-200 font-bold`
+                  : 'bg-[#f7f2f3] text-[#726a78] border border-[#e8dfe2] hover:bg-[#fbe3ed]'
               }`}
             >
               <span>{c.icon}</span>
@@ -224,7 +224,7 @@ export const TodayQuestList: React.FC = () => {
           <select
             value={selectedStatus}
             onChange={e => setSelectedStatus(e.target.value)}
-            className="text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 font-medium text-slate-700 focus:outline-none cursor-pointer"
+            className="text-xs bg-[#fffdf9] border border-[#e8dfe2] rounded-lg px-2.5 py-2 font-medium text-[#665f70] focus:outline-none cursor-pointer"
           >
             <option value="ALL">상태: 전체 ({filteredAndSortedQuests.length})</option>
             <option value="TODO">미완료 ({pendingCount})</option>
@@ -238,7 +238,7 @@ export const TodayQuestList: React.FC = () => {
             <select
               value={sortBy}
               onChange={e => setSortBy(e.target.value as SortOption)}
-              className="text-xs bg-slate-50 border border-slate-200 rounded-lg px-2 py-1.5 font-medium text-slate-700 focus:outline-none cursor-pointer"
+              className="text-xs bg-[#fffdf9] border border-[#e8dfe2] rounded-lg px-2 py-2 font-medium text-[#665f70] focus:outline-none cursor-pointer"
             >
               <option value="SMART">🎯 스마트 추천순</option>
               <option value="IMPORTANCE">🚨 중요도순</option>
@@ -252,7 +252,7 @@ export const TodayQuestList: React.FC = () => {
       </div>
 
       {/* Quest Section Header */}
-      <div className="flex items-center justify-between px-1">
+      <div className="flex items-center justify-between px-1 pt-1">
         <div className="flex items-center gap-2">
           <span className="text-lg">🎮</span>
           <h2 className="font-pixel text-sm font-bold text-slate-800">
@@ -269,14 +269,14 @@ export const TodayQuestList: React.FC = () => {
 
       {/* Quest List */}
       {filteredAndSortedQuests.length > 0 ? (
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {filteredAndSortedQuests.map(quest => (
             <QuestItem key={quest.id} quest={quest} />
           ))}
         </div>
       ) : (
         /* Empty State */
-        <div className="pixel-box p-8 bg-white text-center flex flex-col items-center justify-center">
+        <div className="pixel-box p-8 sm:p-10 bg-[#fffdf9] text-center flex flex-col items-center justify-center">
           <div className="text-5xl mb-3 animate-soft-bounce">🐰</div>
           {searchQuery ? (
             <>
